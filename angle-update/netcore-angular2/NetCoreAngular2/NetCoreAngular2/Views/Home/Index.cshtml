@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "App";
+}
+
+@*
+    For server side render:
+        <app-root asp-prerender-module="ClientApp/dist/main-server"></app-root>
+
+    Not working, and waiting on those issues:
+        https://github.com/angular/universal/issues/627
+        https://github.com/angular/universal/issues/606
+        https://github.com/angular/universal/issues/347
+*@
+
+<app-root></app-root>
+
+<div class="preloader">
+    <div class="preloader-progress">
+        <div class="preloader-progress-bar"></div>
+    </div>
+</div>
+
+<script src="~/dist/polyfills.js" asp-append-version="true"></script>
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+<script src="~/preloader/preloader.js" asp-append-version="true"></script>
+
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}
+
+
